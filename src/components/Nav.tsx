@@ -40,17 +40,27 @@ export function Nav() {
         </Link>
 
         <ul className="hidden gap-8 text-sm uppercase tracking-wider text-ink sm:flex">
-          {LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="group relative inline-block py-1 transition-colors hover:text-terracotta"
-              >
-                {link.label}
-                <span className="absolute inset-x-0 -bottom-0.5 h-px w-0 bg-terracotta transition-all duration-300 ease-out group-hover:w-full" />
-              </Link>
-            </li>
-          ))}
+          {LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`group relative inline-block py-1 transition-colors hover:text-terracotta ${
+                    isActive ? "text-terracotta" : ""
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute inset-x-0 -bottom-0.5 h-px bg-terracotta transition-all duration-300 ease-out ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <button
@@ -73,16 +83,22 @@ export function Nav() {
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="flex flex-col gap-1 overflow-hidden border-t border-ink/10 bg-cream px-6 pb-4 text-sm uppercase tracking-wider text-ink sm:hidden"
           >
-            {LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block py-3 transition-colors hover:text-terracotta"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`block py-3 transition-colors hover:text-terracotta ${
+                      isActive ? "text-terracotta" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </motion.ul>
         )}
       </AnimatePresence>
