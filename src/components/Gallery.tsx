@@ -70,6 +70,7 @@ export function Gallery() {
                 width={image.width}
                 height={image.height}
                 sizes="(min-width: 640px) 33vw, 50vw"
+                priority={index === 0}
                 className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all duration-300 group-hover:bg-ink/30 group-hover:opacity-100">
