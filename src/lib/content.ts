@@ -37,6 +37,40 @@ export const FEATURED_VIDEO = {
   title: "Watch & Practice",
 };
 
+type LongVideo =
+  | { type: "mp4"; src: string; title: string; subtitle: string }
+  | { type: "youtube"; youtubeId: string; title: string; subtitle: string };
+
+export const LONG_VIDEOS: LongVideo[] = [
+  {
+    type: "mp4",
+    src: "/videos/sacred-geometry.mp4",
+    title: "Sacred Geometry Explained",
+    subtitle: "Mandala, Yantra, Chakras",
+  },
+  {
+    type: "mp4",
+    src: "/videos/kali-divine-feminine.mp4",
+    title: "Kali: The Divine Feminine Force",
+    subtitle: "Who Is Kali?",
+  },
+];
+
+export const YOG_VIDEOS = [
+  {
+    src: "/videos/himalaya-meditation.mp4",
+    title: "Meditating in the Himalayas",
+    width: 720,
+    height: 1280,
+  },
+  {
+    src: "/videos/om-chanting.mp4",
+    title: "Traditional 'OM' Chanting",
+    width: 608,
+    height: 1080,
+  },
+];
+
 export const GALLERY_IMAGES = [
   {
     src: "/images/portrait-warm-indoor.jpg",

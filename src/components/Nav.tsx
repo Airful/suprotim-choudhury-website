@@ -11,6 +11,7 @@ import { SITE } from "@/lib/content";
 const LINKS = [
   { href: "/about", label: "About Me" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/yog", label: "Yog" },
   { href: "/journal", label: "Journal" },
   { href: "/press", label: "Press" },
 ];
