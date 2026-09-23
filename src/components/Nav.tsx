@@ -13,7 +13,6 @@ const LINKS = [
   { href: "/gallery", label: "Gallery" },
   { href: "/journal", label: "Journal" },
   { href: "/press", label: "Press" },
-  { href: "/connect", label: "Connect" },
 ];
 
 export function Nav() {

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "motion/react";
 import { HERO } from "@/lib/content";
 
@@ -18,21 +17,6 @@ export function Hero() {
             {HERO.tagline}
           </h1>
           <p className="mt-6 max-w-md text-base text-ink/70">{HERO.subtext}</p>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="mt-8 inline-block"
-          >
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/connect"
-                className="inline-block rounded-full border border-ink px-6 py-3 text-sm uppercase tracking-wider text-ink transition-colors hover:bg-ink hover:text-cream"
-              >
-                Stay Connected
-              </Link>
-            </motion.div>
-          </motion.div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}

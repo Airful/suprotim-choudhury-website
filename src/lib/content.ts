@@ -32,14 +32,6 @@ export const ABOUT = {
   },
 };
 
-export const CONNECT = {
-  overline: "Join the Journey",
-  image: {
-    src: "/images/portrait-warm-indoor.jpg",
-    alt: "Suprotim Choudhury portrait, warm indoor lighting",
-  },
-};
-
 export const FEATURED_VIDEO = {
   youtubeId: "1c84sUPASio",
   title: "Watch & Practice",
