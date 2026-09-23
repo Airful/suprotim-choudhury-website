@@ -27,6 +27,7 @@ export function FeaturedVideo() {
             className="absolute inset-0 h-full w-full"
             src={`https://www.youtube.com/embed/${FEATURED_VIDEO.youtubeId}`}
             title="Suprotim Choudhury — featured video"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
