@@ -29,6 +29,7 @@ export function Hero() {
             alt={HERO.image.alt}
             fill
             priority
+            quality={90}
             sizes="(min-width: 640px) 40vw, 90vw"
             className="object-cover"
           />

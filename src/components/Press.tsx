@@ -46,6 +46,7 @@ export function Press() {
                 alt={item.image.alt}
                 fill
                 sizes="(min-width: 640px) 30vw, 90vw"
+                quality={90}
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />

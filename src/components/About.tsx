@@ -20,6 +20,7 @@ export function About() {
             alt={ABOUT.image.alt}
             fill
             sizes="(min-width: 640px) 40vw, 90vw"
+            quality={90}
             className="object-cover"
           />
         </motion.div>

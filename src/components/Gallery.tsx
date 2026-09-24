@@ -70,6 +70,7 @@ export function Gallery() {
                 width={image.width}
                 height={image.height}
                 sizes="(min-width: 640px) 33vw, 50vw"
+                quality={90}
                 priority={index === 0}
                 className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -144,6 +145,7 @@ export function Gallery() {
                 alt={GALLERY_IMAGES[activeIndex].alt}
                 fill
                 sizes="90vw"
+                quality={90}
                 className="object-contain"
               />
             </motion.div>
