@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
-import { HERO } from "@/lib/content";
+import { ArrowUpRight, Play } from "lucide-react";
+import { HERO, SITE } from "@/lib/content";
 
 export function Hero() {
   return (
@@ -17,6 +19,25 @@ export function Hero() {
             {HERO.tagline}
           </h1>
           <p className="mt-6 max-w-md text-base text-ink/70">{HERO.subtext}</p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Link
+              href="/practice"
+              className="flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm uppercase tracking-wider text-cream transition-colors hover:bg-terracotta"
+            >
+              <Play className="h-4 w-4" />
+              Enter the Practice
+            </Link>
+            <a
+              href={SITE.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-sm uppercase tracking-wider text-ink transition-colors hover:border-terracotta hover:text-terracotta"
+            >
+              Watch on YouTube
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}

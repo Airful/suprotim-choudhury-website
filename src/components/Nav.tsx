@@ -9,11 +9,11 @@ import { Menu, X } from "lucide-react";
 import { SITE } from "@/lib/content";
 
 const LINKS = [
-  { href: "/about", label: "About Me" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/yog", label: "Yog" },
-  { href: "/journal", label: "Journal" },
-  { href: "/press", label: "Press" },
+  { href: "/about", label: "About" },
+  { href: "/practice", label: "Practice" },
+  { href: "/teaching", label: "Teaching" },
+  { href: "/watch", label: "Watch" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {

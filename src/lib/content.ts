@@ -1,7 +1,8 @@
 export const SITE = {
   name: "Suprotim Choudhury",
-  tagline: "Yoga Teacher",
+  tagline: "Yoga Teacher · Practitioner · Student of the Self",
   instagramUrl: "https://www.instagram.com/supro_ethernal/",
+  youtubeUrl: "https://youtube.com/@suprotimchoudhury5492",
   logo: {
     src: "/images/logo-wordmark.png",
     alt: "Suprotim Choudhury — signature logo",
@@ -11,14 +12,32 @@ export const SITE = {
 };
 
 export const HERO = {
-  // TODO: Replace with Suprotim's own words once provided — no real tagline exists yet.
-  tagline: "Stillness is not the absence of movement.",
+  tagline:
+    "Stillness is not the absence of movement. It is awareness within movement.",
   subtext:
-    "Placeholder introduction text — replace with Suprotim's own words once available.",
+    "Yoga is a practice of presence — an exploration of the body, breath, mind and the space between them.",
   image: {
     src: "/images/portrait-nature.jpg",
     alt: "Suprotim Choudhury standing outdoors among sunlit trees",
   },
+};
+
+export const INTRODUCTION = {
+  lines: [
+    "The practice begins with the body. It does not end there.",
+    "Yoga is often encountered through movement. A posture.",
+    "A breath.",
+    "A sequence.",
+    "A moment of stillness.",
+  ],
+  paragraphs: [
+    "But beneath the physical practice lies something deeper: attention.",
+    "My approach to yoga is an exploration of that relationship between movement and awareness — developing strength and mobility while cultivating breath, concentration, discipline and stillness.",
+  ],
+  closingLines: [
+    "The practice is not about becoming someone else.",
+    "It is about becoming more completely present to who you are.",
+  ],
 };
 
 export const ABOUT = {
