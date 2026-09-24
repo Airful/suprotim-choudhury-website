@@ -114,6 +114,72 @@ export const GALLERY_IMAGES = [
     width: 768,
     height: 1024,
   },
+  {
+    src: "/images/meditation-stone-sculpture-1.jpg",
+    alt: "Suprotim Choudhury meditating in lotus pose before a carved stone sculpture",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/warrior-pose-pavilion.jpg",
+    alt: "Suprotim Choudhury in warrior pose beneath a pavilion with hanging lotus decor",
+    width: 853,
+    height: 1280,
+  },
+  {
+    src: "/images/upward-dog-poolside-1.jpg",
+    alt: "Suprotim Choudhury in upward-facing dog pose beside a reflecting pool",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/upward-dog-poolside-2.jpg",
+    alt: "Suprotim Choudhury in upward-facing dog pose beside a reflecting pool, wider angle",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/lotus-pose-poolside.jpg",
+    alt: "Suprotim Choudhury meditating in lotus pose beside a reflecting pool",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/meditation-pavilion.jpg",
+    alt: "Suprotim Choudhury meditating in lotus pose beneath an open pavilion",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/namaste-portrait-buddha.jpg",
+    alt: "Suprotim Choudhury in namaste pose beside a stone Buddha statue",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/meditation-stone-sculpture-2.jpg",
+    alt: "Suprotim Choudhury meditating in lotus pose facing a carved stone sculpture",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/namaste-closeup.jpg",
+    alt: "Close-up portrait of Suprotim Choudhury in namaste pose",
+    width: 668,
+    height: 1562,
+  },
+  {
+    src: "/images/warrior-pose-poolside.jpg",
+    alt: "Suprotim Choudhury in warrior pose beside a garden pool",
+    width: 1280,
+    height: 853,
+  },
+  {
+    src: "/images/tree-pose-buddha.jpg",
+    alt: "Suprotim Choudhury in tree pose beside a stone Buddha statue",
+    width: 1145,
+    height: 1280,
+  },
 ];
 
 // TODO: Empty until Suprotim shares blog posts/articles to publish here.
