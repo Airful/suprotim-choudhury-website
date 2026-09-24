@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <Hero />
       <Introduction />
-      <Subscribe />
       <FeaturedVideo />
+      <Subscribe />
     </>
   );
 }
