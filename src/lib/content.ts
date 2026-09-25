@@ -41,10 +41,24 @@ export const INTRODUCTION = {
 };
 
 export const ABOUT = {
-  // TODO: Replace with Suprotim's real biography once provided — no real bio exists yet.
   paragraphs: [
-    "This is placeholder biography text for Suprotim Choudhury. Replace with his real story, teaching background, and philosophy once he provides it.",
+    "I am Suprotim Choudhury.",
+    "My relationship with yoga has developed through practice, teaching and continual exploration of the discipline beyond the physical form.",
+    "I see yoga not simply as exercise, flexibility or performance, but as a multidimensional practice involving āsana, prāṇāyāma, concentration, meditation and self-observation.",
+    "The physical body is where many of us begin. We learn to stand. To balance. To breathe. To hold. To release.",
+    "And gradually, the practice begins to reveal something beyond the posture itself. It teaches us how we respond to effort. How we relate to discomfort. How we direct attention. How we become still.",
+    "That is where yoga becomes more than movement.",
+    // TODO: drafted line, not from Suprotim's original brief — flag for his review/edit.
+    "Presence is not a state we arrive at once. It is something we return to, again and again, both on and off the mat.",
   ],
+  practiceWithoutPretence: {
+    heading: "A Practice Without Pretence",
+    paragraphs: [
+      "I believe yoga can be traditional without becoming inaccessible, and contemporary without losing its roots. My teaching is therefore grounded in the classical spirit of yoga while remaining relevant to modern life.",
+      "There is room for physical intensity. There is room for softness. There is room for discipline. And there is room for silence.",
+      "The practice meets you where you are — and asks you to become more conscious from there.",
+    ],
+  },
   image: {
     src: "/images/portrait-smiling.jpg",
     alt: "Suprotim Choudhury smiling indoors",
