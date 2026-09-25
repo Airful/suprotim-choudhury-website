@@ -65,6 +65,119 @@ export const ABOUT = {
   },
 };
 
+export const PRACTICE = {
+  dimensions: [
+    {
+      number: "01",
+      sanskrit: "Āsana",
+      subtitle: "The body as a field of awareness.",
+      paragraph:
+        "Postures develop strength, stability, mobility, balance and control. But the deeper practice lies in learning to inhabit the body consciously — observing sensation, breath, effort and stillness.",
+    },
+    {
+      number: "02",
+      sanskrit: "Prāṇāyāma",
+      subtitle: "The breath as a bridge.",
+      paragraph:
+        "Breath is more than something that sustains movement. Through conscious breathing, we begin to observe rhythm, attention and the relationship between breath and mind.",
+    },
+    {
+      number: "03",
+      sanskrit: "Dhyāna",
+      subtitle: "Attention becomes still.",
+      paragraph:
+        "Meditation is the gradual cultivation of sustained awareness. Less about forcing the mind to become empty, and more about learning to observe without immediately reacting.",
+    },
+    {
+      number: "04",
+      sanskrit: "Sādhana",
+      subtitle: "Practice becomes a way of life.",
+      paragraph:
+        "Sādhana represents commitment. Returning to practice. Returning to discipline. Returning to awareness. Not occasionally. But consistently.",
+    },
+  ],
+  philosophy: {
+    heading: "The Body Is the Beginning.",
+    paragraphs: [
+      "We live through the body. We experience the world through the senses. We breathe. We move. We react. We desire. We resist.",
+      "Yoga gives us an opportunity to observe all of this. The posture becomes a doorway. The breath becomes an anchor. Meditation becomes a mirror. And practice becomes a conversation with ourselves.",
+      "Yoga is not merely something we do. It is something we learn to see through.",
+    ],
+  },
+  deeper: {
+    heading: "Between Movement and Stillness",
+    paragraphs: [
+      "There is a moment between one movement and the next. Between inhalation and exhalation. Between effort and release.",
+      "Between thought and action. That moment is easy to overlook. Yoga teaches us to notice it.",
+      "That is where the practice begins to become stillness.",
+    ],
+  },
+};
+
+export const TEACHING = {
+  intro: {
+    heading: "Teaching Is an Act of Attention",
+    paragraphs: [
+      "Teaching yoga is not about demonstrating how far a body can move.",
+      "It is about helping another person become more aware of their own experience. Every body is different. Every mind approaches practice differently.",
+      "There is therefore no single expression of yoga that belongs to everyone.",
+      "My role as a teacher is to create the conditions for exploration — offering guidance, structure and awareness while allowing the practitioner to develop their own relationship with the practice.",
+    ],
+  },
+  offerings: [
+    {
+      number: "01",
+      title: "Movement & Mobility",
+      description: "Developing conscious movement, stability and range of motion.",
+    },
+    {
+      number: "02",
+      title: "Strength & Balance",
+      description: "Building physical integrity through disciplined practice.",
+    },
+    {
+      number: "03",
+      title: "Breathwork",
+      description: "Exploring the relationship between breath, attention and movement.",
+    },
+    {
+      number: "04",
+      title: "Meditation",
+      description: "Cultivating concentration, observation and stillness.",
+    },
+    {
+      number: "05",
+      title: "Traditional Yoga",
+      description: "Engaging with yoga as a broader discipline rather than solely a physical practice.",
+    },
+  ],
+  journey: {
+    heading: "A Practice That Travels",
+    paragraphs: [
+      "Yoga has taken me through different places, people and approaches to practice.",
+      "From India to Europe and back again, the practice has continued to evolve while its essential questions remain the same:",
+    ],
+    questions: ["Who am I?", "How do I move through the world? Can I become more aware?"],
+    closing:
+      "My teaching journey has included work with practitioners in different environments and participation in international yoga events.",
+    // Kept as a restrained, factual list — only what Suprotim has verified, no added claims.
+    credentials: [
+      {
+        year: "2022",
+        title: "Yamm Festival",
+        location: "Milano Marittima, Italy",
+        description: "Featured among the Indian yoga teachers at the festival.",
+      },
+      {
+        year: "Certification",
+        title: "200-Hour Teacher Training",
+        location: "Sri Sri School of Yoga",
+        description: "Recorded in the school's teacher registry.",
+      },
+    ],
+  },
+};
+
 export const FEATURED_VIDEO = {
   youtubeId: "1c84sUPASio",
   title: "Watch & Practice",

@@ -29,3 +29,21 @@ h4 {
   font-weight: 600;
   line-height: 1.15;
 }
+
+/* A slow, ambient "breath" loop for decorative background elements —
+   plain CSS so it keeps running reliably without JS/rAF overhead. */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: var(--breathe-opacity-from, 0.25);
+  }
+  50% {
+    transform: scale(var(--breathe-scale-to, 1.15));
+    opacity: var(--breathe-opacity-to, 0.5);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
