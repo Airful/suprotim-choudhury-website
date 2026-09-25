@@ -84,7 +84,10 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+        <div
+          className="mt-24 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5"
+          style={{ perspective: 1200 }}
+        >
           {reflections.map((paragraph, index) => (
             <motion.div
               key={paragraph}
@@ -92,42 +95,63 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-              whileHover={{ y: -4 }}
+              whileHover={{
+                y: -8,
+                rotateX: 3,
+                rotateY: -3,
+                boxShadow: "0 24px 48px -16px rgba(28, 25, 23, 0.16)",
+              }}
+              style={{ transformStyle: "preserve-3d" }}
               className="group relative flex min-h-[220px] items-center overflow-hidden rounded-3xl border border-ink/10 bg-white/40 p-8 transition-colors duration-300 hover:border-terracotta/40 sm:min-h-[260px] sm:p-10"
             >
               <span
                 aria-hidden
-                className="pointer-events-none absolute -right-2 -top-6 select-none font-heading text-8xl text-ink/[0.06] transition-colors duration-300 group-hover:text-terracotta/[0.12] sm:text-9xl"
+                className="pointer-events-none absolute -right-2 -top-6 select-none font-heading text-8xl text-ink/[0.06] transition-colors duration-300 group-hover:text-terracotta/[0.14] sm:text-9xl"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <p className="relative text-ink/70">{paragraph}</p>
+              <p className="relative font-heading text-base leading-snug text-ink/70 transition-colors duration-300 group-hover:text-ink sm:text-lg">
+                {paragraph}
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mt-24 bg-ink py-24 text-cream"
-      >
+      <div className="mt-24 bg-ink py-24 text-cream">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <SectionLabel className="text-terracotta">
-            A Practice Without Pretence
-          </SectionLabel>
-          <p className="mx-auto mt-6 max-w-2xl font-heading text-2xl font-medium leading-snug tracking-tight text-cream sm:text-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <SectionLabel className="text-terracotta">
+              A Practice Without Pretence
+            </SectionLabel>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
+            className="mx-auto mt-6 max-w-2xl bg-gradient-to-r from-cream via-cream to-terracotta bg-clip-text font-heading text-2xl font-medium leading-snug tracking-tight text-transparent sm:text-3xl"
+          >
             {pullQuote}
-          </p>
-          <div className="mx-auto mt-8 max-w-xl space-y-4 text-cream/60">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="mx-auto mt-8 max-w-xl space-y-4 text-cream/60"
+          >
             {supportingLines.reverse().map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
