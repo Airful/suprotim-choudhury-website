@@ -19,6 +19,28 @@ function SectionLabel({
   );
 }
 
+// A gathering — radiating lines for a festival, a moment shared with others.
+function FestivalIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.4} className="h-5 w-5 text-terracotta">
+      <circle cx="16" cy="16" r="4.5" />
+      <path d="M16 3v5M16 24v5M3 16h5M24 16h5M7 7l3.5 3.5M25 7l-3.5 3.5M7 25l3.5-3.5M25 25l-3.5-3.5" />
+    </svg>
+  );
+}
+
+// A seal with ribbon tails — a credential recorded, not just claimed.
+function CertificationIcon() {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth={1.4} className="h-5 w-5 text-terracotta">
+      <circle cx="16" cy="12" r="7" />
+      <path d="M11.5 18 8 29l8-4 8 4-3.5-11" />
+    </svg>
+  );
+}
+
+const CREDENTIAL_ICONS = [FestivalIcon, CertificationIcon];
+
 export function Teaching() {
   return (
     <section className="overflow-hidden bg-cream pb-24 pt-32">
@@ -157,25 +179,52 @@ export function Teaching() {
             {TEACHING.journey.closing}
           </motion.p>
 
-          <div className="mt-16 space-y-10 border-l border-ink/15 pl-8">
-            {TEACHING.journey.credentials.map((credential, index) => (
-              <motion.div
-                key={credential.title}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-                className="relative"
-              >
-                <span className="absolute -left-[2.28rem] top-1.5 h-2.5 w-2.5 rounded-full bg-terracotta" />
-                <p className="text-xs uppercase tracking-[0.2em] text-terracotta">
-                  {credential.year}
-                </p>
-                <h3 className="mt-1 font-heading text-xl text-ink">{credential.title}</h3>
-                <p className="text-sm text-ink/50">{credential.location}</p>
-                <p className="mt-2 text-ink/70">{credential.description}</p>
-              </motion.div>
-            ))}
+          <div className="relative mt-16 pl-[3.75rem]">
+            <motion.div
+              aria-hidden
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              style={{ transformOrigin: "top" }}
+              className="absolute left-6 top-6 bottom-6 w-px bg-ink/15"
+            />
+            <div className="space-y-12">
+              {TEACHING.journey.credentials.map((credential, index) => {
+                const Icon = CREDENTIAL_ICONS[index];
+                return (
+                  <motion.div
+                    key={credential.title}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <span className="absolute -left-[3.75rem] top-0 flex h-12 w-12 items-center justify-center rounded-full border border-terracotta/30 bg-cream shadow-[0_0_0_4px_var(--color-cream)]">
+                      <Icon />
+                    </span>
+                    <p className="text-xs uppercase tracking-[0.2em] text-terracotta">
+                      {credential.year}
+                    </p>
+                    <h3 className="mt-1 font-heading text-xl text-ink">{credential.title}</h3>
+                    <p className="text-sm text-ink/50">{credential.location}</p>
+                    <p className="mt-2 text-ink/70">{credential.description}</p>
+                    {credential.link && (
+                      <a
+                        href={credential.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link mt-4 inline-flex items-center gap-1.5 text-sm text-terracotta transition-colors duration-300 hover:text-ink"
+                      >
+                        {credential.link.label}
+                        <ArrowUpRight className="h-3.5 w-3.5 -translate-x-0.5 transition-transform duration-300 group-hover/link:translate-x-0" />
+                      </a>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

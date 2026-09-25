@@ -167,12 +167,18 @@ export const TEACHING = {
         title: "Yamm Festival",
         location: "Milano Marittima, Italy",
         description: "Featured among the Indian yoga teachers at the festival.",
+        link: {
+          label: "Check it out",
+          url: "https://bologna.repubblica.it/cronaca/2022/06/09/news/yoga_yamm_festival_milano_marittima-352803335/amp/",
+        },
       },
       {
         year: "Certification",
         title: "200-Hour Teacher Training",
         location: "Sri Sri School of Yoga",
         description: "Recorded in the school's teacher registry.",
+        // No verified registry URL yet — link omitted until Suprotim supplies one.
+        link: null,
       },
     ],
   },
