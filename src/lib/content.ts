@@ -205,6 +205,28 @@ export const WATCH = {
     heading: "New practice. New perspective.",
     subtext: "Follow the channel for new videos and practice sessions.",
   },
+  // A scalable grid, not a single slot — as Suprotim sends more videos,
+  // they just get appended here and pick up the grid, thumbnail, duration
+  // badge and click-to-play-inline behaviour automatically.
+  moreVideos: [
+    {
+      src: "/videos/sacred-geometry.mp4",
+      poster: "/images/sacred-geometry-poster.jpg",
+      title: "Sacred Geometry Explained",
+      subtitle: "Mandala, Yantra, Chakras",
+      duration: "12:43",
+    },
+    // Placeholder duplicate of the same video, kept intentionally so the
+    // grid displays two columns — replace with Suprotim's next real video
+    // when it arrives.
+    {
+      src: "/videos/sacred-geometry.mp4",
+      poster: "/images/sacred-geometry-poster.jpg",
+      title: "Sacred Geometry Explained",
+      subtitle: "Mandala, Yantra, Chakras",
+      duration: "12:43",
+    },
+  ],
 };
 
 type LongVideo =

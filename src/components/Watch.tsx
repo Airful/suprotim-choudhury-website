@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { FEATURED_VIDEO, SITE, WATCH } from "@/lib/content";
@@ -15,6 +16,26 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 export function Watch() {
+  // Clicking a video in the grid grows it to full width first, and only
+  // once that expand finishes does playback actually start (see
+  // VideoPlayer's growDelay). Other videos pause if the visitor switches.
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Keep the expanding video centered in the viewport regardless of how
+  // far down the grid it sits. Scrolled once right away (so the visitor
+  // sees it moving into place as it grows) and once more after the grow
+  // animation finishes, to correct for the height change as it enlarges.
+  useEffect(() => {
+    if (expandedIndex === null) return;
+    const centerExpanded = () => {
+      itemRefs.current[expandedIndex]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+    centerExpanded();
+    const timeout = setTimeout(centerExpanded, 700);
+    return () => clearTimeout(timeout);
+  }, [expandedIndex]);
+
   return (
     <section className="bg-cream pb-28 pt-32 sm:pb-36">
       <div className="mx-auto max-w-2xl px-6 text-center">
@@ -78,6 +99,58 @@ export function Watch() {
         <h2 className="font-heading text-2xl text-ink sm:text-3xl">{WATCH.closing.heading}</h2>
         <p className="mt-3 text-ink/60">{WATCH.closing.subtext}</p>
       </motion.div>
+
+      <div
+        className={`mx-auto mt-16 px-6 sm:mt-20 ${
+          WATCH.moreVideos.length === 1 ? "max-w-xl" : "max-w-5xl"
+        }`}
+      >
+        <div
+          className={`grid grid-cols-1 gap-x-8 gap-y-14 ${
+            WATCH.moreVideos.length > 1 ? "sm:grid-cols-2" : ""
+          }`}
+        >
+          {WATCH.moreVideos.map((video, index) => (
+            <motion.div
+              key={`${video.title}-${index}`}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
+              layout
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut",
+                layout: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+              }}
+              className={expandedIndex === index ? "sm:col-span-2" : ""}
+            >
+              <VideoPlayer
+                src={video.src}
+                title={video.title}
+                poster={video.poster}
+                duration={video.duration}
+                isActive={expandedIndex === null ? undefined : expandedIndex === index}
+                onStart={() => setExpandedIndex(index)}
+                growDelay={700}
+                isExpanded={expandedIndex === index}
+                onClose={() => setExpandedIndex(null)}
+                shrinkDelay={700}
+                className="aspect-video w-full rounded-2xl shadow-[0_30px_60px_-20px_rgba(28,25,23,0.3)]"
+              />
+              <div className="mt-4">
+                <span className="text-xs uppercase tracking-[0.2em] text-terracotta">
+                  {video.subtitle}
+                </span>
+                <h3 className="mt-1 font-heading text-xl text-ink">{video.title}</h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
