@@ -187,6 +187,24 @@ export const TEACHING = {
 export const FEATURED_VIDEO = {
   youtubeId: "1c84sUPASio",
   title: "Watch & Practice",
+  // Self-hosted copy of the same video — used instead of the YouTube
+  // embed wherever the player itself is shown on the site, so visitors
+  // watch here without any YouTube branding.
+  src: "/videos/kali-divine-feminine.mp4",
+  poster: "/images/kali-poster.jpg",
+};
+
+export const WATCH = {
+  heading: "Watch. Practice. Explore.",
+  paragraphs: [
+    "The practice doesn't have to remain inside the studio.",
+    "Through my YouTube channel, I share practices, demonstrations, reflections and explorations around yoga and conscious movement.",
+    "Whether you are beginning your practice or returning to it after years away, there is always another breath to observe.",
+  ],
+  closing: {
+    heading: "New practice. New perspective.",
+    subtext: "Follow the channel for new videos and practice sessions.",
+  },
 };
 
 type LongVideo =

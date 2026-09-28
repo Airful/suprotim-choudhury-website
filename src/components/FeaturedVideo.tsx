@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { FEATURED_VIDEO } from "@/lib/content";
+import { ArrowUpRight } from "lucide-react";
+import { FEATURED_VIDEO, SITE } from "@/lib/content";
+import { VideoPlayer } from "@/components/VideoPlayer";
 
 export function FeaturedVideo() {
   return (
@@ -21,28 +23,25 @@ export function FeaturedVideo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          className="relative mt-10 aspect-video w-full overflow-hidden rounded-xl bg-black"
+          className="mt-10"
         >
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube.com/embed/${FEATURED_VIDEO.youtubeId}`}
-            title="Suprotim Choudhury — featured video"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+          <VideoPlayer
+            src={FEATURED_VIDEO.src}
+            title={FEATURED_VIDEO.title}
+            poster={FEATURED_VIDEO.poster}
+            className="aspect-video w-full rounded-xl"
           />
         </motion.div>
         <p className="mt-4 text-sm text-cream/60">
-          Video not loading?{" "}
           <a
-            href={`https://youtu.be/${FEATURED_VIDEO.youtubeId}`}
+            href={SITE.youtubeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-cream"
+            className="inline-flex items-center gap-1.5 underline hover:text-cream"
           >
-            Watch it directly on YouTube
+            More videos on YouTube
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
-          .
         </p>
       </div>
     </section>
