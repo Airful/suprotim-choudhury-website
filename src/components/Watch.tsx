@@ -32,7 +32,7 @@ export function Watch() {
       itemRefs.current[expandedIndex]?.scrollIntoView({ behavior: "smooth", block: "center" });
     };
     centerExpanded();
-    const timeout = setTimeout(centerExpanded, 700);
+    const timeout = setTimeout(centerExpanded, 900);
     return () => clearTimeout(timeout);
   }, [expandedIndex]);
 
@@ -124,7 +124,7 @@ export function Watch() {
                 duration: 0.6,
                 delay: index * 0.1,
                 ease: "easeOut",
-                layout: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+                layout: { duration: 0.9, ease: [0.65, 0, 0.35, 1] },
               }}
               className={expandedIndex === index ? "sm:col-span-2" : ""}
             >
@@ -135,10 +135,10 @@ export function Watch() {
                 duration={video.duration}
                 isActive={expandedIndex === null ? undefined : expandedIndex === index}
                 onStart={() => setExpandedIndex(index)}
-                growDelay={700}
+                growDelay={900}
                 isExpanded={expandedIndex === index}
                 onClose={() => setExpandedIndex(null)}
-                shrinkDelay={700}
+                shrinkDelay={900}
                 className="aspect-video w-full rounded-2xl shadow-[0_30px_60px_-20px_rgba(28,25,23,0.3)]"
               />
               <div className="mt-4">
