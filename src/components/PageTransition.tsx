@@ -7,7 +7,12 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    // mode="wait" makes every navigation block on the old page fully fading
+    // out before the new page even starts rendering — a guaranteed blank gap
+    // on top of whatever the new page's own load time is. "popLayout" lets
+    // the new page mount and animate in immediately while the old page fades
+    // out on top of it, removing that forced dead time.
+    <AnimatePresence mode="popLayout" initial={false}>
       <motion.div
         key={pathname}
         initial={{ opacity: 0, y: 8 }}

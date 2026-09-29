@@ -4,8 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { Play, X } from "lucide-react";
 
 // A self-hosted video, played with the browser's own native controls —
-// no YouTube branding, no external embed. Loads only metadata until the
-// visitor presses play, so it doesn't slow the page down up front.
+// no YouTube branding, no external embed. The poster image covers the
+// thumbnail entirely and `duration` is a hardcoded prop, so the browser
+// never needs to touch the video file until the visitor presses play.
+// preload="metadata" looks harmless but isn't: for a large MP4 without
+// a "faststart" moov atom (ours weren't re-encoded with it), the browser
+// has to range-request deep into the file just to find the duration —
+// on our 90MB+ videos that single request took 4-8 seconds in testing
+// and hogged the connection, stalling the rest of the page's JS/images.
 export function VideoPlayer({
   src,
   title,
@@ -96,7 +102,7 @@ export function VideoPlayer({
         title={title}
         poster={poster}
         playsInline
-        preload="metadata"
+        preload="none"
         controls={hasStarted}
         className="h-full w-full object-cover"
       />
