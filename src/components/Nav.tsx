@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 import { SITE } from "@/lib/content";
 
 const LINKS = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/practice", label: "Practice" },
   { href: "/teaching", label: "Teaching" },
@@ -35,7 +36,16 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-cream/95 shadow-sm backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <Link href="/" className="block">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/images/sc-monogram-ink.png"
+            alt=""
+            aria-hidden
+            width={64}
+            height={64}
+            priority
+            className="hidden h-7 w-7 opacity-80 sm:block"
+          />
           <Image
             src={SITE.logo.src}
             alt={SITE.logo.alt}

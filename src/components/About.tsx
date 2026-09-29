@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ABOUT } from "@/lib/content";
+import { SectionDivider } from "@/components/SectionDivider";
 
 function SectionLabel({
   children,
@@ -118,7 +119,9 @@ export function About() {
         </div>
       </div>
 
-      <div className="mt-24 bg-ink py-24 text-cream">
+      <SectionDivider variant="ink" />
+
+      <div className="bg-ink py-24 text-cream">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

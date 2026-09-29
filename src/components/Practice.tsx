@@ -4,6 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { motion } from "motion/react";
 import { PRACTICE } from "@/lib/content";
 import { ScrubbedLine } from "@/components/ScrubbedText";
+import { SectionDivider } from "@/components/SectionDivider";
 
 function SectionLabel({
   children,
@@ -215,6 +216,8 @@ export function Practice() {
           </div>
         </div>
       </div>
+
+      <SectionDivider variant="ink" />
 
       <div className="relative overflow-hidden bg-ink py-28 text-cream sm:py-36">
         {/* A slow, looping "breath" — the section is literally about the pause

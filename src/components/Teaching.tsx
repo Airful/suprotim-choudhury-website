@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { TEACHING } from "@/lib/content";
 import { ScrubbedLine } from "@/components/ScrubbedText";
+import { SectionDivider } from "@/components/SectionDivider";
 
 function SectionLabel({
   children,
@@ -99,7 +100,9 @@ export function Teaching() {
           </div>
         </div>
 
-        <div className="mt-24 sm:mt-32">
+        <SectionDivider variant="ink" />
+
+        <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +135,9 @@ export function Teaching() {
           </div>
         </div>
 
-        <div className="mt-24 max-w-2xl sm:mt-32">
+        <SectionDivider variant="ink" />
+
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
