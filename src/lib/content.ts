@@ -229,6 +229,30 @@ export const WATCH = {
   ],
 };
 
+export const INSTAGRAM = {
+  heading: "Life Between the Practices",
+  paragraphs: [
+    "Yoga does not exist separately from life.",
+    "Practice happens on the mat — but awareness follows us beyond it.",
+  ],
+  handle: "@supro_ethernal",
+  ctaLabel: "Follow on Instagram",
+  // The brief asks for a large visual grid rather than a text-heavy
+  // section. No live Instagram feed is connected yet, so this reuses a
+  // curated set of Suprotim's existing photos until real Instagram-sourced
+  // images are supplied.
+  images: [
+    { src: "/images/warrior-pose-pavilion.jpg", alt: "Suprotim Choudhury in warrior pose beneath a pavilion" },
+    { src: "/images/upward-dog-poolside-1.jpg", alt: "Suprotim Choudhury in upward-facing dog pose beside a pool" },
+    { src: "/images/namaste-closeup.jpg", alt: "Close-up portrait of Suprotim Choudhury in namaste pose" },
+    { src: "/images/meditation-pavilion.jpg", alt: "Suprotim Choudhury meditating beneath an open pavilion" },
+    { src: "/images/tree-pose-buddha.jpg", alt: "Suprotim Choudhury in tree pose beside a stone Buddha statue" },
+    { src: "/images/lotus-pose-poolside.jpg", alt: "Suprotim Choudhury meditating in lotus pose beside a pool" },
+    { src: "/images/namaste-portrait-buddha.jpg", alt: "Suprotim Choudhury in namaste pose beside a stone Buddha statue" },
+    { src: "/images/meditation-stone-sculpture-2.jpg", alt: "Suprotim Choudhury meditating facing a carved stone sculpture" },
+  ],
+};
+
 type LongVideo =
   | { type: "mp4"; src: string; title: string; subtitle: string }
   | { type: "youtube"; youtubeId: string; title: string; subtitle: string };
