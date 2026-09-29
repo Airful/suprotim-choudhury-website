@@ -253,6 +253,12 @@ export const INSTAGRAM = {
   ],
 };
 
+export const CONTACT = {
+  heading: "Begin Your Practice",
+  paragraph:
+    "Whether you are looking to deepen an existing practice, begin exploring yoga, arrange a private session, discuss a workshop or simply connect — I'd be happy to hear from you.",
+};
+
 type LongVideo =
   | { type: "mp4"; src: string; title: string; subtitle: string }
   | { type: "youtube"; youtubeId: string; title: string; subtitle: string };
