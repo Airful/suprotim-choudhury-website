@@ -18,12 +18,19 @@ const LINKS = [
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoveredHref, setHoveredHref] = useState<string | null>(null);
   const pathname = usePathname();
 
   // Close the mobile menu automatically whenever navigation completes.
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  // The pill follows whichever link is hovered, falling back to the active
+  // page. Sharing one layoutId across links means Framer Motion animates
+  // its position/size itself (FLIP) as it moves from item to item, instead
+  // of us hand-animating a left/width.
+  const pillTarget = hoveredHref ?? pathname;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-cream/95 shadow-sm backdrop-blur">
@@ -39,24 +46,34 @@ export function Nav() {
           />
         </Link>
 
-        <ul className="hidden gap-8 text-sm uppercase tracking-wider text-ink sm:flex">
+        <ul
+          className="hidden items-center gap-1 text-sm uppercase tracking-wider text-ink sm:flex"
+          onMouseLeave={() => setHoveredHref(null)}
+        >
           {LINKS.map((link) => {
             const isActive = pathname === link.href;
+            const showPill = pillTarget === link.href;
             return (
-              <li key={link.href}>
+              <li
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setHoveredHref(link.href)}
+              >
+                {showPill && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="absolute inset-0 rounded-full bg-terracotta/10"
+                    transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.5 }}
+                  />
+                )}
                 <Link
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group relative inline-block py-1 transition-colors hover:text-terracotta ${
+                  className={`relative z-10 inline-block rounded-full px-4 py-2 transition-colors duration-200 hover:text-terracotta ${
                     isActive ? "text-terracotta" : ""
                   }`}
                 >
                   {link.label}
-                  <span
-                    className={`absolute inset-x-0 -bottom-0.5 h-px bg-terracotta transition-all duration-300 ease-out ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
                 </Link>
               </li>
             );
