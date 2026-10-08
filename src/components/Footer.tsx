@@ -134,7 +134,9 @@ export function Footer() {
                 </motion.a>
               ))}
             </div>
-            <p className="mt-4 text-xs text-cream/30">{SITE.tagline}</p>
+            <p className="mt-4 text-xs text-cream/30">
+              Yoga Teacher · Practitioner · Student
+            </p>
           </div>
         </div>
 

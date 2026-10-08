@@ -14,6 +14,8 @@ const LINKS = [
   { href: "/practice", label: "Practice" },
   { href: "/teaching", label: "Teaching" },
   { href: "/watch", label: "Watch" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/press", label: "Press" },
   { href: "/contact", label: "Contact" },
 ];
 
