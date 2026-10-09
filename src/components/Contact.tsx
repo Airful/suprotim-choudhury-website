@@ -33,17 +33,39 @@ export function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // UI only for now — no backend wired up yet. Real submission handling
-  // (email delivery, etc.) will be decided once Suprotim confirms how he
-  // wants to receive these.
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!name.trim() || !email.trim() || !message.trim()) return;
-    setSubmitted(true);
-    setName("");
-    setEmail("");
-    setMessage("");
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error ?? "Something went wrong.");
+      }
+
+      setSubmitted(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setError(
+        "Something went wrong sending your message — please try again, or reach out directly via Instagram or YouTube below.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -175,13 +197,20 @@ export function Contact() {
                     className="w-full rounded-2xl border border-ink/15 bg-cream py-4 pl-12 pr-5 text-sm text-ink placeholder:text-ink/40 transition-colors duration-300 focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/15"
                   />
                 </FieldShell>
+                {error && (
+                  <p className="text-sm text-terracotta" role="alert">
+                    {error}
+                  </p>
+                )}
+
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-2 flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm uppercase tracking-wider text-cream transition-colors hover:bg-terracotta"
+                  disabled={submitting}
+                  whileHover={{ scale: submitting ? 1 : 1.02 }}
+                  whileTap={{ scale: submitting ? 1 : 0.98 }}
+                  className="mt-2 flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm uppercase tracking-wider text-cream transition-colors hover:bg-terracotta disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Send Message
+                  {submitting ? "Sending…" : "Send Message"}
                   <Send className="h-4 w-4" />
                 </motion.button>
               </form>
