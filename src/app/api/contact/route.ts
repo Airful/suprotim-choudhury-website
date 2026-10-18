@@ -3,9 +3,9 @@ import { Resend } from "resend";
 
 const TO_EMAIL = "suprodhury@gmail.com";
 
-// Resend's shared address — works without a verified domain, since no
-// domain has been verified for suprotim.com in Resend yet.
-const FROM_EMAIL = "Suprotim Choudhury Website <onboarding@resend.dev>";
+// suprotim.com is verified in Resend (2026-10-17), so sending from the
+// domain lifts the sandbox owner-only recipient limit and quota.
+const FROM_EMAIL = "Suprotim Choudhury Website <hello@suprotim.com>";
 
 export async function POST(request: Request) {
   const { name, email, message } = await request.json();
