@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { ABOUT } from "@/lib/content";
 import { SectionDivider } from "@/components/SectionDivider";
 
@@ -21,19 +20,12 @@ function SectionLabel({
 }
 
 export function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
-
   const [ledeLine, ...introRest] = ABOUT.paragraphs;
   const reflections = introRest.slice(2);
   const [pullQuote, ...supportingLines] = [...ABOUT.practiceWithoutPretence.paragraphs].reverse();
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-cream pb-0 pt-32">
+    <section className="overflow-hidden bg-cream pb-0 pt-32">
       <div className="relative mx-auto max-w-6xl px-6">
         <span
           aria-hidden
@@ -50,16 +42,14 @@ export function About() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:order-2"
           >
-            <motion.div style={{ y: imageY }} className="absolute inset-[-6%]">
-              <Image
-                src={ABOUT.image.src}
-                alt={ABOUT.image.alt}
-                fill
-                sizes="(min-width: 640px) 40vw, 90vw"
-                quality={90}
-                className="object-cover"
-              />
-            </motion.div>
+            <Image
+              src={ABOUT.image.src}
+              alt={ABOUT.image.alt}
+              fill
+              sizes="(min-width: 640px) 40vw, 90vw"
+              quality={90}
+              className="object-cover"
+            />
           </motion.div>
 
           <div className="relative sm:order-1">
