@@ -16,6 +16,7 @@ const LINKS = [
   { href: "/watch", label: "Watch" },
   { href: "/gallery", label: "Gallery" },
   { href: "/press", label: "Press" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
 
