@@ -433,3 +433,26 @@ export const PRESS_ITEMS = [
     },
   },
 ];
+
+export const TESTIMONIALS = {
+  heading: "From the Practice",
+  paragraphs: [
+    "Words from those who have shared the mat, the breath, and the journey.",
+  ],
+  items: [
+    {
+      title: "A Transformative Yoga Journey with Suprotim Choudhury",
+      quote:
+        "My journey with yoga has been truly special, and I owe all of it to Suprotim Choudhury, who introduced me to and guided me through the beautiful world of Ashtanga, Hatha Yoga, and Upanishad-inspired practices.",
+      paragraphs: [
+        "Under his guidance, I learned pranayama and breathing techniques, Sarvangasana, the three forms of Surya Namaskar, Urdhva Dhanurasana (Wheel Pose), forward bends, backbends, and various forms of Vinyasa. What makes Suprotim stand out is his ability to help you develop not just the physical strength and flexibility required for these asanas, but also a deeper appreciation for the discipline, awareness, and joy that yoga brings into everyday life.",
+        "One of my absolute favourite asanas is Urdhva Dhanurasana, and I love performing it wherever my travels take me — whether on a rock in the wilderness, in the middle of a jungle, or during my trekking adventures. For me, yoga has become much more than a practice on the mat; it has become a way of life that travels with me wherever I go.",
+        "Suprotim has helped me discover this freedom and confidence through his teaching. His guidance has made yoga an integral part of my lifestyle, complementing my love for adventure, trekking, and exploring the outdoors.",
+        "I wholeheartedly recommend Suprotim to anyone looking to explore yoga beyond the ordinary — whether your goal is to improve flexibility, build strength, master challenging asanas, deepen your breathing practice, or develop a lifelong connection with yoga.",
+        "Thank you, Suprotim, for being such an inspiring teacher and for making yoga a journey I genuinely love.",
+      ],
+      name: "Jatin Nasa",
+      role: "Owner, Witcorp India Advisors LLP",
+    },
+  ],
+};
