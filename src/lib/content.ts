@@ -454,5 +454,11 @@ export const TESTIMONIALS = {
       name: "Jatin Nasa",
       role: "Owner, Witcorp India Advisors LLP",
     },
+    {
+      quote:
+        "Suprotim was my yoga teacher for a good stretch of time, and he is the reason I'm still on the mat today. He introduced me to a style of practice I hadn't encountered before and taught me the full primary series, sequence by sequence. I still practise it. More than the technique, he got me genuinely passionate about yoga, which is a harder thing to teach. Every conversation with him, in class and outside it, has been a pleasure. Learning from him and working with him has been a joy.",
+      paragraphs: [],
+      name: "Avi",
+    },
   ],
 };
